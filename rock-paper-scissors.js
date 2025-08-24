@@ -61,7 +61,7 @@ function playGame() {
     let computerScore = 0
 
     for (let i = 0; i < 5; i++) {
-        playRound(getHumanChoice(), getComputerChoice())
+        playRound(getHumanChoice().toLowerCase(), getComputerChoice())
     }
 
     console.log(`Your score: ${humanScore}, Computer score: ${computerScore}`)
