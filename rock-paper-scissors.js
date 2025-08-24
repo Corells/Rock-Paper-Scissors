@@ -11,13 +11,9 @@ function getComputerChoice() {
         return "scissors"
 }
 
-function getHumanChoice() {
-    let choice = prompt("Choose rock, paper or scissors")
+let getHumanChoice = () => prompt("Choose rock, paper or scissors")
 
-    return choice
-}
-
-function playGame(params) {
+function playGame() {
     /**
      * @param {string} humanChoice
      * @param {string} computerChoice
