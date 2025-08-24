@@ -26,7 +26,7 @@ function playRound(humanChoice, computerChoice) {
     if (humanChoice === computerChoice)
         console.log("Tie!")
 
-    if (humanChoice === "rock") {
+    else if (humanChoice === "rock") {
         if (computerChoice === "scissors") {
             console.log("You win!")
             humanScore++
@@ -62,3 +62,5 @@ function playRound(humanChoice, computerChoice) {
 
 let humanScore = 0
 let computerScore = 0
+
+playRound(getHumanChoice(), getComputerChoice())
