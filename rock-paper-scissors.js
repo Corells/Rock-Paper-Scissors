@@ -36,7 +36,28 @@ function playRound(humanChoice, computerChoice) {
             computerScore++
         }
     }
-        
+    
+    else if (humanChoice === "scissors") {
+        if (computerChoice === "paper") {
+            console.log("You win!")
+            humanScore++
+        }
+        else {
+            console.log("You lost!")
+            computerScore++
+        }
+    }
+
+    else {
+        if (computerChoice === "rock") {
+            console.log("You win!")
+            humanScore++
+        }
+        else {
+            console.log("You lost!")
+            computerScore++
+        }
+    }
 }
 
 let humanScore = 0
