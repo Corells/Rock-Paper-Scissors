@@ -11,8 +11,6 @@ function getComputerChoice() {
         return "scissors"
 }
 
-let getHumanChoice = () => prompt("Choose rock, paper or scissors")
-
 function playGame() {
     function removeButtons() {
         rockButton?.remove()
