@@ -14,57 +14,78 @@ function getComputerChoice() {
 let getHumanChoice = () => prompt("Choose rock, paper or scissors")
 
 function playGame() {
+    function removeButtons() {
+        rockButton?.remove()
+        paperButton?.remove()
+        scissorsButton?.remove()
+    }
+
     /**
      * @param {string} humanChoice
      * @param {string} computerChoice
      */
     function playRound(humanChoice, computerChoice) {
-        const div = document.querySelector("div")
-        div.textContent = `You chose ${humanChoice}; Computer chose ${computerChoice}; `
+        div.textContent = `You: ${humanChoice}; Computer: ${computerChoice}; `
         
         if (humanChoice === computerChoice)
-            div.textContent += "Tie!"
+            div.textContent += "Tie!; "
 
         else if (humanChoice === "rock") {
             if (computerChoice === "scissors") {
-                div.textContent += "You win!"
+                div.textContent += "You win!; "
                 humanScore++
             }
             else {
-                div.textContent += "You lost!"
+                div.textContent += "You lost!; "
                 computerScore++
             }
         }
         
         else if (humanChoice === "scissors") {
             if (computerChoice === "paper") {
-                div.textContent += "You win!"
+                div.textContent += "You win!; "
                 humanScore++
             }
             else {
-                div.textContent += "You lost!"
+                div.textContent += "You lost!; "
                 computerScore++
             }
         }
 
         else {
             if (computerChoice === "rock") {
-                div.textContent += "You win!"
+                div.textContent += "You win!; "
                 humanScore++
             }
             else {
-                div.textContent += "You lost!"
+                div.textContent += "You lost!; "
                 computerScore++
             }
         }
+
+        if (humanScore == MAX_SCORE) {
+            div.textContent = `You won ${MAX_SCORE} rounds! Congratulations! Final Score: ${humanScore}-${computerScore}`
+            removeButtons()
+            return
+        }
+
+        if (computerScore == MAX_SCORE) {
+            div.textContent = `You lost ${MAX_SCORE} rounds! Too bad! Final Score: ${humanScore}-${computerScore}`
+            removeButtons()
+            return
+        }
+
+        div.textContent += `Current Score: ${humanScore}-${computerScore}`
     }
 
+    const MAX_SCORE = 5
     let humanScore = 0
     let computerScore = 0
 
     const rockButton = document.querySelector("#rock")
     const paperButton = document.querySelector("#paper")
     const scissorsButton = document.querySelector("#scissors")
+    const div = document.querySelector("div")
 
     rockButton?.addEventListener("click", () => playRound("rock", getComputerChoice()))
     paperButton?.addEventListener("click", () => playRound("paper", getComputerChoice()))
