@@ -19,39 +19,41 @@ function playGame() {
      * @param {string} computerChoice
      */
     function playRound(humanChoice, computerChoice) {
-        console.log(`You chose ${humanChoice}, computer chose ${computerChoice}`)
+        const div = document.querySelector("div")
+        div.textContent = `You chose ${humanChoice}; Computer chose ${computerChoice}; `
+        
         if (humanChoice === computerChoice)
-            console.log("Tie!")
+            div.textContent += "Tie!"
 
         else if (humanChoice === "rock") {
             if (computerChoice === "scissors") {
-                console.log("You win!")
+                div.textContent += "You win!"
                 humanScore++
             }
             else {
-                console.log("You lost!")
+                div.textContent += "You lost!"
                 computerScore++
             }
         }
         
         else if (humanChoice === "scissors") {
             if (computerChoice === "paper") {
-                console.log("You win!")
+                div.textContent += "You win!"
                 humanScore++
             }
             else {
-                console.log("You lost!")
+                div.textContent += "You lost!"
                 computerScore++
             }
         }
 
         else {
             if (computerChoice === "rock") {
-                console.log("You win!")
+                div.textContent += "You win!"
                 humanScore++
             }
             else {
-                console.log("You lost!")
+                div.textContent += "You lost!"
                 computerScore++
             }
         }
@@ -67,8 +69,6 @@ function playGame() {
     rockButton?.addEventListener("click", () => playRound("rock", getComputerChoice()))
     paperButton?.addEventListener("click", () => playRound("paper", getComputerChoice()))
     scissorsButton?.addEventListener("click", () => playRound("scissors", getComputerChoice()))
-
-    console.log(`Your score: ${humanScore}, Computer score: ${computerScore}`)
 }
 
 playGame()
