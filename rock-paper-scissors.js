@@ -60,6 +60,14 @@ function playGame() {
     let humanScore = 0
     let computerScore = 0
 
+    const rockButton = document.querySelector("#rock")
+    const paperButton = document.querySelector("#paper")
+    const scissorsButton = document.querySelector("#scissors")
+
+    rockButton?.addEventListener("click", () => playRound("rock", getComputerChoice()))
+    paperButton?.addEventListener("click", () => playRound("paper", getComputerChoice()))
+    scissorsButton?.addEventListener("click", () => playRound("scissors", getComputerChoice()))
+
     console.log(`Your score: ${humanScore}, Computer score: ${computerScore}`)
 }
 
